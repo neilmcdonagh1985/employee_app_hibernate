@@ -40,7 +40,7 @@ public class Department {
         this.name = name;
     }
 
-    public ArrayList<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
