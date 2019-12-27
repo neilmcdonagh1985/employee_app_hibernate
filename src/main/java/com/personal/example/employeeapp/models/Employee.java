@@ -1,5 +1,7 @@
 package com.personal.example.employeeapp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -20,6 +22,7 @@ public class Employee {
     @Column(name = "email")
     private String email;
 
+    @JsonIgnoreProperties("employees")
     @ManyToOne
     @JoinColumn(name="department_id", nullable=false)
     private Department department;
