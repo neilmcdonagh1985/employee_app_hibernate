@@ -2,8 +2,10 @@ package com.personal.example.employeeapp;
 
 import com.personal.example.employeeapp.models.Department;
 import com.personal.example.employeeapp.models.Employee;
+import com.personal.example.employeeapp.models.Project;
 import com.personal.example.employeeapp.repositories.DepartmentRepository;
 import com.personal.example.employeeapp.repositories.EmployeeRepository;
+import com.personal.example.employeeapp.repositories.ProjectRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,8 +19,11 @@ class EmployeeappApplicationTests {
 	@Autowired
 	DepartmentRepository departmentRepository;
 
+	@Autowired
+	ProjectRepository projectRepository;
+
 	@Test
-	void contextLoads() {
+	public void contextLoads() {
 	}
 
 	@Test
@@ -28,6 +33,36 @@ class EmployeeappApplicationTests {
 
 		Employee employee1 = new Employee("Keith", 42, "keith@theoffice.com", department1);
 		employeeRepository.save(employee1);
+
+	}
+
+	@Test
+	public void addEmployeesAndProjects() {
+		Department department2 = new Department("IT");
+		departmentRepository.save(department2);
+
+		Department department3 = new Department("HR");
+		departmentRepository.save(department3);
+
+		Employee employee2 = new Employee("Tim", 32, "tim@theoffice.com", department2);
+		employeeRepository.save(employee2);
+
+		Project project1 = new Project("flash");
+		projectRepository.save(project1);
+
+		project1.addEmployee(employee2);
+		projectRepository.save(project1);
+
+		Employee employee3 = new Employee("Gareth", 34, "gareth@theoffice.com", department3);
+		employeeRepository.save(employee3);
+
+		Employee employee4 = new Employee("jennifer", 34, "jennifer@theoffice.com", department2);
+		employeeRepository.save(employee4);
+
+		project1.addEmployee(employee4);
+		projectRepository.save(project1);
+
+
 
 	}
 

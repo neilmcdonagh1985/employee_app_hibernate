@@ -15,6 +15,9 @@ public class Project {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "name")
+    private String name;
+
     @JsonIgnoreProperties(value = "projects")
     @ManyToMany
     @JoinTable(
@@ -33,8 +36,25 @@ public class Project {
 
     private List<Employee> employees;
 
-    public Project() {
+    public Project(String name) {
+        this.name = name;
         this.employees = new ArrayList<>();
+    }
+
+    public Project() {
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Employee> getEmployees() {
@@ -43,5 +63,9 @@ public class Project {
 
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
+    }
+
+    public void addEmployee( Employee employee) {
+        this.employees.add(employee);
     }
 }
