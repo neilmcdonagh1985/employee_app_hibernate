@@ -16,11 +16,6 @@ public class EmployeeController {
     @Autowired
     EmployeeRepository employeeRepository;
 
-    @GetMapping
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
-    }
-
     @GetMapping("{id}")
     public Optional<Employee> getEmployee(@PathVariable Long id) {
         return employeeRepository.findById(id);
