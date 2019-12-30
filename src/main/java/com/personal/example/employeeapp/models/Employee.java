@@ -95,6 +95,10 @@ public class Employee {
         this.department = department;
     }
 
+    public List<Project> getProjects() {
+        return projects;
+    }
+
     public void addProject(Project project){
         this.projects.add(project);
     }
