@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 class EmployeeappApplicationTests {
 
@@ -62,8 +64,11 @@ class EmployeeappApplicationTests {
 		project1.addEmployee(employee4);
 		projectRepository.save(project1);
 
+	}
 
-
+	@Test
+	public void findEmployeesByDepartmentId() {
+		List<Employee> found = employeeRepository.findEmployeesByDepartmentId(1L);
 	}
 
 }
