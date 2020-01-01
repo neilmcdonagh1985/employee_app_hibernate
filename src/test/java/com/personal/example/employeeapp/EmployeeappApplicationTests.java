@@ -12,6 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 @SpringBootTest
 class EmployeeappApplicationTests {
 
@@ -69,6 +71,14 @@ class EmployeeappApplicationTests {
 	@Test
 	public void findEmployeesByDepartmentId() {
 		List<Employee> found = employeeRepository.findEmployeesByDepartmentId(1L);
+		assertEquals("Dawn", found.get(0).getName());
+
+	}
+
+	@Test
+	public void findProjectByLocationName() {
+		List<Project> found = projectRepository.findProjectsByName("lightbulb");
+		assertEquals("lightbulb", found.get(0).getName());
 	}
 
 }
