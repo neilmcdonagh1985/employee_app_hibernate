@@ -81,4 +81,11 @@ class EmployeeappApplicationTests {
 		assertEquals("lightbulb", found.get(0).getName());
 	}
 
+	@Test
+	public void findDepartmentsThatHaveEmployeesNamed() {
+		List<Department> found = departmentRepository.findDepartmentsThatHaveEmployeesNamed("Dawn");
+		assertEquals("marketing", found.get(0).getName());
+	}
+
+
 }

@@ -52,6 +52,9 @@ public class DataLoader implements ApplicationRunner {
         project2.addEmployee(employee2);
         projectRepository.save(project2);
 
+        department1.addEmployee(employee1);
+        departmentRepository.save(department1);
+
 
     }
 
